@@ -1,0 +1,39 @@
+<div class="row">
+								{% for d in data %}
+                                    <div class="col-6 col-md-4 col-lg-4 col-xl-3">
+                                        <div class="product product-7 text-center">
+                                            <figure class="product-media">
+
+                                                <a href="{{d.id}}">
+                                                    <img src="{{d.image.url}}" alt="Product image" class="product-image">
+                                                </a>
+
+
+
+                                                <div class="product-action">
+                                                    <a href="{% url 'cart_add_medcart' d.id %}" class="btn-product btn-cart"><span>Add to cart</span></a>
+                                                </div><!-- End .product-action -->
+                                            </figure><!-- End .product-media -->
+
+                                            <div class="product-body">
+                                                <div class="product-cat">
+                                                    <a href="#">{{d.category}}</a>
+                                                </div><!-- End .product-cat -->
+                                                <h3 class="product-title"><a href="{{d.id}}">{{d.name}}</a></h3><!-- End .product-title -->
+                                                <div class="product-price">
+													{{d.price}} TK
+                                                </div><!-- End .product-price -->
+                                                <div class="ratings-container">
+                                                    <div class="ratings">
+                                                        <div class="ratings-val" style="width: 20%;"></div><!-- End .ratings-val -->
+                                                    </div><!-- End .ratings -->
+                                                    <span class="ratings-text">( 2 Reviews )</span>
+                                                </div><!-- End .rating-container -->
+
+
+                                            </div><!-- End .product-body -->
+                                        </div><!-- End .product -->
+                                    </div><!-- End .col-sm-6 col-lg-4 col-xl-3 -->
+{% endfor %}
+
+                                </div><!-- End .row -->

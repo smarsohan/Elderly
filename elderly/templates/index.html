@@ -1,0 +1,470 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="main">
+            <div class="intro-slider-container mb-5">
+                <div class="intro-slider owl-carousel owl-theme owl-nav-inside owl-light" data-toggle="owl"
+                    data-owl-options='{
+                        "dots": true,
+                        "nav": false,
+                        "responsive": {
+                            "1200": {
+                                "nav": true,
+                                "dots": false
+                            }
+                        }
+                    }'>
+                    <div class="intro-slide" style="background-image: url(/static/assets/images/banner_2.jpg);">
+                        <div class="container intro-content">
+                            <div class="row justify-content-end">
+
+                            </div><!-- End .row -->
+                        </div><!-- End .intro-content -->
+                    </div><!-- End .intro-slide -->
+
+                    <div class="intro-slide" style="background-image: url(/static/assets/images/banner_1.jpg);">
+                        <div class="container intro-content">
+                            <div class="row justify-content-end">
+
+                            </div><!-- End .row -->
+                        </div><!-- End .intro-content -->
+                    </div><!-- End .intro-slide -->
+                </div><!-- End .intro-slider owl-carousel owl-simple -->
+
+                <span class="slider-loader"></span><!-- End .slider-loader -->
+            </div><!-- End .intro-slider-container -->
+
+            <div class="container">
+                <h2 class="title text-center mb-4">Explore Popular Services</h2><!-- End .title text-center -->
+
+                <div class="cat-blocks-container">
+                    <div class="row">
+                        <div class="col-6 col-sm-4 col-lg-2">
+                            <a href="{% url 'ondemandservice-list' %}" class="cat-block">
+                                <figure>
+                                    <span>
+                                        <img src="/static/assets/images/package.png"  alt="Category image">
+                                    </span>
+                                </figure>
+
+                                <h3 class="cat-block-title"><b>On Demand Service</b></h3><!-- End .cat-block-title -->
+                            </a>
+                        </div><!-- End .col-sm-4 col-lg-2 -->
+
+                        <div class="col-6 col-sm-4 col-lg-2">
+                            <a href="{% url 'nurse-list' %}" class="cat-block">
+                                <figure>
+                                    <span>
+                                        <img src="/static/assets/images/nurse_1.png"  alt="Category image">
+                                    </span>
+                                </figure>
+
+                                <h3 class="cat-block-title"><b>Nurses</b></h3><!-- End .cat-block-title -->
+                            </a>
+                        </div><!-- End .col-sm-4 col-lg-2 -->
+
+                        <div class="col-6 col-sm-4 col-lg-2">
+                            <a href="{% url 'doctor-list' %}" class="cat-block">
+                                <figure>
+                                    <span>
+                                        <img src="/static/assets/images/doctor1.png"  alt="Category image">
+                                    </span>
+                                </figure>
+
+                                <h3 class="cat-block-title"><b>Doctors</b></h3><!-- End .cat-block-title -->
+                            </a>
+                        </div><!-- End .col-sm-4 col-lg-2 -->
+
+                        <div class="col-6 col-sm-4 col-lg-2">
+                            <a href="{% url 'medcart-list' %}" class="cat-block">
+                                <figure>
+                                    <span>
+                                        <img src="/static/assets/images/goodcart.png"  alt="Category image">
+                                    </span>
+                                </figure>
+
+                                <h3 class="cat-block-title"><b>Medcart</b></h3><!-- End .cat-block-title -->
+                            </a>
+                        </div><!-- End .col-sm-4 col-lg-2 -->
+
+                        <div class="col-6 col-sm-4 col-lg-2">
+                            <a href="{% url 'health_package-list' %}" class="cat-block">
+                                <figure>
+                                    <span>
+                                        <img src="/static/assets/images/package.png"  alt="Category image">
+                                    </span>
+                                </figure>
+
+                                <h3 class="cat-block-title"><b>Health Package</b></h3><!-- End .cat-block-title -->
+                            </a>
+                        </div><!-- End .col-sm-4 col-lg-2 -->
+
+                        <div class="col-6 col-sm-4 col-lg-2">
+                            <a href="{% url 'diagnostic-list' %}" class="cat-block">
+                                <figure>
+                                    <span>
+                                        <img src="/static/assets/images/lab_test.png"  alt="Category image">
+                                    </span>
+                                </figure>
+
+                                <h3 class="cat-block-title"><b>Diagnostic</b></h3><!-- End .cat-block-title -->
+                            </a>
+                        </div><!-- End .col-sm-4 col-lg-2 -->
+
+                    </div><!-- End .row -->
+                </div><!-- End .cat-blocks-container -->
+            </div><!-- End .container -->
+
+            <div class="mb-4"></div><!-- End .mb-4 -->
+
+<div class="bg-light pt-5 pb-6">
+            <div class="container for-you ">
+                <div class="heading heading-flex mb-3">
+                    <div class="heading-left">
+                        <h2 class="title">On-Demand Service</h2><!-- End .title -->
+                    </div><!-- End .heading-left -->
+
+                   <div class="heading-right">
+                        <a href="{% url 'ondemandservice-list' %}" class="title-link">View All <i class="icon-long-arrow-right"></i></a>
+                   </div><!-- End .heading-right -->
+                </div><!-- End .heading -->
+
+                <div class="products">
+                    <div class="row justify-content-center">
+                        {% for ds in ondemandservices %}
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="product product-5 text-center">
+                                <figure class="product-media">
+
+                                    <a href="ondemandservice-list/{{ds.id}}">
+                                        <img src="{{ds.image}}" alt="Product image" class="product-image">
+                                    </a>
+
+
+                                    <div class="product-action">
+                                        <a href="{% url 'cart_add' ds.id %}" class="btn-product btn-cart" title="Add to cart"><span><b>Add to cart</b></span></a>
+
+                                    </div><!-- End .product-action -->
+                                </figure><!-- End .product-media -->
+
+                                <div class="product-body">
+
+                                    <h3 class="product-title"><a href="ondemandservice-list/{{ds.id}}"><b>{{ds.name}}</b></a></h3><!-- End .product-title -->
+                                    <div class="product-price">
+                                        {{ds.price}} TK
+                                    </div><!-- End .product-price -->
+
+
+
+                                </div><!-- End .product-body -->
+                            </div><!-- End .product -->
+                        </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
+
+
+                        {% endfor %}
+
+                    </div><!-- End .row -->
+                </div><!-- End .products -->
+
+            </div><!-- End .container -->
+</div>
+
+            <div class="mb-4"></div><!-- End .mb-4 -->
+
+            <div class="container for-you ">
+                <div class="heading heading-flex mb-3">
+                    <div class="heading-left">
+                        <h2 class="title">Health Package</h2><!-- End .title -->
+                    </div><!-- End .heading-left -->
+
+                   <div class="heading-right">
+                        <a href="{% url 'health_package-list' %}" class="title-link">View All <i class="icon-long-arrow-right"></i></a>
+                   </div><!-- End .heading-right -->
+                </div><!-- End .heading -->
+
+                <div class="products">
+                    <div class="row justify-content-center">
+
+                        {% for hp in healthpackage %}
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="product product-2">
+                                <figure class="product-media">
+
+                                    <a href="/healthpackage-list/{{hp.id}}">
+                                        <img src="{{hp.image.url}}" alt="Product image" class="product-image">
+                                    </a>
+
+
+                                    <div class="product-action">
+                                        <a href="{% url 'cart_add' hp.id %}" class="btn-product btn-cart" title="Add to cart"><span><b>Add to cart</b></span></a>
+
+                                    </div><!-- End .product-action -->
+                                </figure><!-- End .product-media -->
+
+                                <div class="product-body">
+
+                                    <h3 class="product-title"><a href="/healthpackage-list/{{hp.id}}"><b>{{hp.name}}</b></a></h3><!-- End .product-title -->
+                                    <div class="product-price">
+                                        {{hp.price}} TK
+                                    </div><!-- End .product-price -->
+
+
+
+                                </div><!-- End .product-body -->
+                            </div><!-- End .product -->
+                        </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
+                        {% endfor %}
+
+                    </div><!-- End .row -->
+                </div><!-- End .products -->
+            </div><!-- End .container -->
+
+
+
+    <div class="bg-light pt-2 pb-3">
+            <div class="container for-you ">
+                <div class="heading heading-flex mb-3">
+                    <div class="heading-left">
+                        <h2 class="title">Doctors</h2><!-- End .title -->
+                    </div><!-- End .heading-left -->
+
+                   <div class="heading-right">
+                        <a href="{% url 'doctor-list' %}" class="title-link">View All <i class="icon-long-arrow-right"></i></a>
+                   </div><!-- End .heading-right -->
+                </div><!-- End .heading -->
+
+                <div class="products">
+                    <div class="row">
+                        {% for d in doctors %}
+
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <div class="product product-5 text-center">
+                                <figure class="product-media">
+
+                                    <a href="doctor-list/{{d.id}}">
+                                        <img src="{{d.image}}" alt="Product image" class="product-image">
+                                    </a>
+
+
+
+                                    <div class="product-action">
+                                        <a href="#" class="btn-product" title="Book Appoinment"><span><b>Book Appoinment</b></span></a>
+
+                                    </div><!-- End .product-action -->
+                                </figure><!-- End .product-media -->
+
+                                <div class="product-body">
+                                    <div class="product-cat">
+                                        <a href="#">{{d.specialities}}</a>
+                                    </div><!-- End .product-cat -->
+                                    <h3 class="product-title"><a href="doctor-list/{{d.id}}"><b>{{d.name}}</b></a></h3><!-- End .product-title -->
+                                    <div class="product-price">
+                                        {{d.clinic_price}} Tk
+                                    </div><!-- End .product-price -->
+                                    <h6>(Consultation fee at clinic)</h6>
+
+
+
+                                </div><!-- End .product-body -->
+                            </div><!-- End .product -->
+                        </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
+                        {% endfor %}
+
+                    </div><!-- End .row -->
+                </div><!-- End .products -->
+            </div><!-- End .container -->
+    </div>
+
+            <div class="mb-4"></div><!-- End .mb-4 -->
+
+            <div class="container for-you">
+                <div class="heading heading-flex mb-3">
+                    <div class="heading-left">
+                        <h2 class="title">Nurses</h2><!-- End .title -->
+                    </div><!-- End .heading-left -->
+
+                   <div class="heading-right">
+                        <a href="{% url 'nurse-list' %}" class="title-link">View All <i class="icon-long-arrow-right"></i></a>
+                   </div><!-- End .heading-right -->
+                </div><!-- End .heading -->
+
+                <div class="products">
+                    <div class="row justify-content-center">
+                        {% for n in nurses %}
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <div class="product product-5 text-center">
+                                <figure class="product-media">
+
+                                    <a href="nurse-list/{{n.id}}">
+                                        <img src="{{n.image}}" alt="Product image" class="product-image">
+                                    </a>
+
+
+                                    <div class="product-action">
+                                        <a href="nurse-hire/{{n.id}}" class="btn-product" title="Hire"><span><b>Hire</b></span></a>
+
+                                    </div><!-- End .product-action -->
+                                </figure><!-- End .product-media -->
+
+                                <div class="product-body">
+                                    <div class="product-cat">
+                                        <a href="#">{{n.speciality}}</a>
+                                    </div><!-- End .product-cat -->
+                                    <h3 class="product-title"><a href="nurse-list/{{n.id}}">{{n.name}}</a></h3><!-- End .product-title -->
+
+
+
+
+                                </div><!-- End .product-body -->
+                            </div><!-- End .product -->
+                        </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
+
+                        {% endfor %}
+
+                    </div><!-- End .row -->
+                </div><!-- End .products -->
+
+            </div><!-- End .container -->
+
+
+<div class="bg-light pt-5 pb-6">
+            <div class="container for-you ">
+                <div class="heading heading-flex mb-3">
+                    <div class="heading-left">
+                        <h2 class="title">Medcart</h2><!-- End .title -->
+                    </div><!-- End .heading-left -->
+
+                   <div class="heading-right">
+                        <a href="{% url 'medcart-list' %}" class="title-link">View All <i class="icon-long-arrow-right"></i></a>
+                   </div><!-- End .heading-right -->
+                </div><!-- End .heading -->
+
+                <div class="products">
+                    <div class="row justify-content-center">
+                        {% for m in medcart %}
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <div class="product product-5 text-center">
+                                <figure class="product-media">
+
+                                    <a href="/medcart-list/{{m.id}}">
+                                        <img src="{{m.image}}" alt="Product image" class="product-image">
+                                    </a>
+
+
+                                    <div class="product-action">
+                                        <a href="{% url 'cart_add' m.id %}" class="btn-product"><span><b>Add to Cart</b></span></a>
+
+                                    </div><!-- End .product-action -->
+                                </figure><!-- End .product-media -->
+
+                                <div class="product-body">
+                                    <div class="product-cat">
+                                        <a href="#">{{m.category}}</a>
+                                    </div><!-- End .product-cat -->
+                                    <h3 class="product-title"><a href="/medcart-list/{{m.id}}">{{m.name}}</a></h3><!-- End .product-title -->
+                                    <div class="product-price">
+                                        {{m.price}} TK
+                                    </div><!-- End .product-price -->
+
+
+
+                                </div><!-- End .product-body -->
+                            </div><!-- End .product -->
+                        </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
+
+                        {% endfor %}
+
+                    </div><!-- End .row -->
+                </div><!-- End .products -->
+
+            </div><!-- End .container -->
+</div>
+
+<div class="mb-4"></div><!-- End .mb-4 -->
+<div class="container">
+                <div class="heading-left">
+                        <h2 class="title">Trusted Partner</h2><!-- End .title -->
+                    </div><!-- End .heading-left -->
+                <div class="owl-carousel mt-5 mb-5 owl-simple" data-toggle="owl"
+                    data-owl-options='{
+                        "nav": false,
+                        "dots": false,
+                        "margin": 30,
+                        "loop": false,
+                        "responsive": {
+                            "0": {
+                                "items":2
+                            },
+                            "420": {
+                                "items":3
+                            },
+                            "600": {
+                                "items":4
+                            },
+                            "900": {
+                                "items":5
+                            },
+                            "1024": {
+                                "items":6
+                            }
+                        }
+                    }'>
+
+                    {% for tp in trustedpartner %}
+                    <a href="#" class="brand">
+                        <img src="{{tp.image}}" alt="Brand Name">
+                    </a>
+
+                    {% endfor %}
+
+
+
+
+
+
+
+
+                </div><!-- End .owl-carousel -->
+            </div><!-- End .container -->
+<div class="mb-4"></div><!-- End .mb-4 -->
+
+
+
+    <div class="about-testimonials bg-light-2 pt-6 pb-6">
+                    <div class="container">
+                        <h2 class="title text-center mb-3">What Customer Say About Us</h2><!-- End .title text-center -->
+
+                        <div class="owl-carousel owl-simple owl-testimonials-photo" data-toggle="owl"
+                            data-owl-options='{
+                                "nav": false,
+                                "dots": true,
+                                "margin": 20,
+                                "loop": false,
+                                "responsive": {
+                                    "1200": {
+                                        "nav": true
+                                    }
+                                }
+                            }'>
+                            <blockquote class="testimonial text-center">
+
+                                <p>“ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Pellentesque aliquet nibh nec urna. <br>In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti. ”</p>
+                                <cite>
+                                    Jenson Gregory
+                                    <span>Customer</span>
+                                </cite>
+                            </blockquote><!-- End .testimonial -->
+
+                            <blockquote class="testimonial text-center">
+
+                                <p>“ Impedit, ratione sequi, sunt incidunt magnam et. Delectus obcaecati optio eius error libero perferendis nesciunt atque dolores magni recusandae! Doloremque quidem error eum quis similique doloribus natus qui ut ipsum.Velit quos ipsa exercitationem, vel unde obcaecati impedit eveniet non. ”</p>
+
+                                <cite>
+                                    Victoria Ventura
+                                    <span>Customer</span>
+                                </cite>
+                            </blockquote><!-- End .testimonial -->
+                        </div><!-- End .testimonials-slider owl-carousel -->
+                    </div><!-- End .container -->
+                </div><!-- End .bg-light-2 pt-5 pb-6 -->
+        </div><!-- End .main -->
+{% endblock %}

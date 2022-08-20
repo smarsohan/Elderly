@@ -1,0 +1,50 @@
+{% for d in data %}
+                                <div class="product product-list">
+                                    <div class="row">
+                                        <div class="col-6 col-lg-3">
+                                            <figure class="product-media">
+
+                                                <a href="{{d.id}}">
+                                                    <img src="{{d.image.url}}" alt="Product image" class="product-image">
+                                                </a>
+                                            </figure><!-- End .product-media -->
+                                        </div><!-- End .col-sm-6 col-lg-3 -->
+
+                                        <div class="col-6 col-lg-3 order-lg-last">
+                                            <div class="product-list-action">
+                                                <div class="product-price">
+                                                    Clinic {{d.clinic_price}} TK <br>
+                                                    Online {{d.online_price}} TK
+                                                </div><!-- End .product-price -->
+                                                <div class="ratings-container">
+                                                    <div class="ratings">
+                                                        <div class="ratings-val" style="width: 20%;"></div><!-- End .ratings-val -->
+                                                    </div><!-- End .ratings -->
+                                                    <span class="ratings-text">( 2 Reviews )</span>
+                                                </div><!-- End .rating-container -->
+
+
+
+                                                <a href="#" class="btn btn-primary btn-rounded"><span>Book Appointment</span></a>
+                                            </div><!-- End .product-list-action -->
+                                        </div><!-- End .col-sm-6 col-lg-3 -->
+
+                                        <div class="col-lg-6">
+                                            <div class="product-body product-action-inner">
+
+
+                                                <h3 class="product-title"><a href="{{d.id}}">{{d.name}}</a></h3><!-- End .product-title -->
+                                                <div class="product-cat">
+                                                    <a href="#">{{d.position}}</a><br>
+                                                    <a href="#">{{d.specialities}}</a>
+                                                </div><!-- End .product-cat -->
+                                                <div class="product-content">
+													<p class="fa fa-stethoscope">  <b>{{d.experience}}</b></p>
+                                                </div><!-- End .product-content -->
+
+
+                                            </div><!-- End .product-body -->
+                                        </div><!-- End .col-lg-6 -->
+                                    </div><!-- End .row -->
+                                </div><!-- End .product -->
+                                {% endfor %}
